@@ -93,12 +93,6 @@ def get_vagas_from_supabase() -> list:
 
     return logger.info("Vagas inseridas na Lista de Vagas")
 
-def add_candidaturas_candidatos():
-    cand_por_vaga = VagaDB().get_all_candidatos_vaga()
-    
-
-
-
 def handle_client(cliente, addr=None):
     try:
         data_recv = cliente.recv(4096)
@@ -207,14 +201,8 @@ def protocol(cliente, data_cliente, addr):
 
         logger.info(f'Cliente {data_cliente["cpf"]} requisitou {data_cliente["protocol_msg"]}')
 
-        # Usa o método que retorna todas as candidaturas do Candidato da tabela Candidaturas
-        busca_cand = CandidatoDB().get_candidaturas(data_cliente["cpf"])
-
         if data_cliente['type'] == 'c':
             candidato = buscar_usuario(data_cliente["cpf"], "c")
-
-            for i in range(len(busca_cand)):
-                candidato.vagas_aplicadas.append(busca_cand[i]['vaga'])
 
             if candidato:
                 vagas = candidato.vagas_aplicadas
