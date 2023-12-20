@@ -153,10 +153,7 @@ class ChainingHashTable:
         return lista
 
     def __getitem__(self, key):
-        if self.__contains__(key):
-            return self.get(key)
-        else:
-            return None
+        return self.get(key)
     
     def __setitem__(self, key, data):
         self.put(key, data)
@@ -201,18 +198,4 @@ class ChainingHashTable:
         print('+--+')
 
 
-    def showHashTableMod(self):
-        """Método modificado para imprimir o atributo nome do objeto inserido na hash.
-        """
-        entrada = -1
-        print('+--+')
-        for items in self.__table:
-            entrada += 1
-            print(f'|{entrada:2d}| = ', end='') 
-            if len(items) == 0:
-                print(' None')
-                continue
-            for entry in items:
-                print(f'[ {entry.key},{entry.value.nome} ] ',end='')
-            print()
-        print('+--+')
+
