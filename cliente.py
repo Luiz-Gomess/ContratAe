@@ -351,7 +351,7 @@ def dashboard(cpf, type, action):
             response_server = cliente_socket.recv(1024)
             response_server = json.loads(response_server.decode('utf-8'))
             idVaga = 0
-            if response_server["status"] == "200 Ok":
+            if response_server["status"] == "200 OK":
                 idVaga = response_server['data']
 
         content_dash = {}
