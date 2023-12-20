@@ -402,13 +402,8 @@ def protocol(cliente, data_cliente, addr):
                             return handle_client(cliente, addr)
 
                         vaga.adicionarCandidatura(cand.dict_user())
-                        logger.info(f'{vaga.adicionarCandidatura(cand.dict_user())}')
-                        print()
-                        logger.info(f'Cand Dict User: {cand.dict_user()}')
                         cand.candidatar(vaga.dict_vagaMOD())
-                        logger.info(f'Cand Candidatar: {cand.candidatar(vaga.dict_vagaMOD())}')
                         
-
                         # Cadastra em uma vaga determinado candidato na tabela Candidaturas
                         CandidatoDB().candidatar_se(cpf_cand, idVaga)
 
@@ -510,7 +505,6 @@ def run_server():
     get_candidatos_from_supabase()
     get_recrutadores_from_supabase()
     get_vagas_from_supabase()
-    print('\n\n', ListaVagas)
 
     while True:
         cliente, addr = server.accept()
