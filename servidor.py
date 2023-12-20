@@ -453,6 +453,7 @@ def protocol(cliente, data_cliente, addr):
             for vaga in ListaVagas:
                 if vaga.cpf_recrutador == rec.cpf:
                     data_send = {'status':'200 OK', 'data': vaga.id}
+                    print(data_send)
                     cliente.send(json.dumps(data_send).encode('utf-8'))
                     return handle_client(cliente, addr)
             else:
